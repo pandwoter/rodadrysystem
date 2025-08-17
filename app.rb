@@ -1,6 +1,5 @@
 class App < Roda
   plugin :json
-  plugin :common_logger, System['logger']
 
   route do |r|
     r.on 'products' do

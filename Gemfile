@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'dry-system', '~> 1.2'
+gem 'pg', '~> 1.6'
 gem 'puma', '~> 6.6'
 gem 'rackup', '~> 2.2'
 gem 'roda', '~> 3.95'
