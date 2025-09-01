@@ -1,11 +1,9 @@
 module Handlers
   class GetProduct
+    include Import['database']
+
     def handle(params)
-      {
-        id: params[:id],
-        name: 'some name',
-        price: 12.12
-      }
+      database[:products].where(id: params[:id]).first
     end
   end
 end

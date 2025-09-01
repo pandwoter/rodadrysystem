@@ -6,3 +6,5 @@ class System < Dry::System::Container
     config.component_dirs.add 'lib'
   end
 end
+
+Import = System.injector
