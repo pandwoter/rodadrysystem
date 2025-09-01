@@ -1,17 +1,19 @@
 class App < Roda
   plugin :json
 
+  include Import[get: 'handlers.get_product',
+                 create: 'handlers.create_product']
+
   route do |r|
     r.on 'products' do
-      r.post do
-        System['handlers.create_product'].handle({ name: r.params['name'], 
-                                                   price: r.params['price'] })
-      end
-
       r.is Integer do |id|
         r.get do
-          System['handlers.get_product'].handle({ id: id })
+          get.handle(id: id)
         end
+      end
+
+      r.post do
+        create.handle(name: r.params['name'], price: r.params['price'])
       end
     end
   end
